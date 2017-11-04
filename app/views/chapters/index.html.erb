@@ -1,0 +1,42 @@
+<header>
+	<h1 class="h2">Quran chapter search</h1>
+</header>
+<section class="search-form">
+	<%= form_for :chapters, method: :get do |f| %>
+		<div class="input-group input-group-lg">
+			<%= label_tag :keywords, nil, class: "sr-only" %>
+			<%= text_field_tag :keywords, nil,
+				placeholder: "In Arabic or in English ",
+				class: "form-control input-lg" %>
+			<span class="input-group-btn">
+				<%= submit_tag "Find Chapters" ,
+					class: "btn btn-primary btn-lg" %>
+			</span>
+		</div>
+	<% end %>
+</section>
+<section class="search-result">
+	<header>
+		<h1 class="h3">Result</h1>
+	</header>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Arabic Name</th>
+				<th>City</th>
+				<th>Meaning</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @chapters.each do |chapter| %>
+				<tr>
+					<td><%= chapter.latin_name %></td>
+					<td><%= chapter.arabic_name %></td>
+					<td><%= chapter.city%></td>
+					<td><%= chapter.english_translation %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</section>
