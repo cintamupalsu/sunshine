@@ -8,7 +8,7 @@ class ChaptersController < ApplicationController
         chapter_search_term.where_args).
         order(chapter_search_term.order)
     else
-      @chapters = []
+      @chapters = Chapter.all.limit(10)
     end
   end
 end
