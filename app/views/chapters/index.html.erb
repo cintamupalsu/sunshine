@@ -19,24 +19,18 @@
 	<header>
 		<h1 class="h3">Result</h1>
 	</header>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Arabic Name</th>
-				<th>City</th>
-				<th>Meaning</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @chapters.each do |chapter| %>
-				<tr>
-					<td><%= chapter.latin_name %></td>
-					<td><%= chapter.arabic_name %></td>
-					<td><%= chapter.city%></td>
-					<td><%= chapter.english_translation %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<ol class="list-group">
+		<% @chapters.each do |chapter| %>
+			<li class="list-group-item clearfix">
+				<h3 class="pull-right">
+					<%= chapter.arabic_name %>
+				</h3>
+				<h2 class="h3">
+					<%= chapter.latin_name %>
+					<small><%= chapter.city %></small>
+				</h2>
+				<h4><%= chapter.english_translation %><h4>
+			</li>
+		<% end %>
+	</ol>
 </section>
