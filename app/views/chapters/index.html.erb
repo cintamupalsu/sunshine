@@ -19,6 +19,10 @@
 	<header>
 		<h1 class="h3">Result</h1>
 	</header>
+	<% if @chapters.present? %>
+		<%= render partial: "pager",
+			locals:{ keywords: @keywords, page: @page }%>
+	<% end %>
 	<ol class="list-group">
 		<% @chapters.each do |chapter| %>
 			<li class="list-group-item clearfix">
